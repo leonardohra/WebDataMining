@@ -24,7 +24,7 @@ __status__ = 'Dev'
 
 import os
 from data_retrieval import create_book
-from pre_processing import pre_process_text, StemLem
+from text_exploration import Text_Explorer, Text
 
 def save_book(book, location):
 	with open(location, 'w') as file:
@@ -37,7 +37,6 @@ def load_book(location):
 	return book
 
 def main():
-	book = ''
 	book_file = './Book.txt'
 	book_downloaded = os.path.isfile(book_file)
 	
@@ -46,14 +45,9 @@ def main():
 		book = create_book()
 		save_book(book, book_file)
 		print('Book downloaded and saved as {}'.format(book_file))
-	else:
-		print("Book found, loading it...")
-		book = load_book(book_file)
-		print("Done")
 	
-	# You can use as second attribute: StemLem.PORTER, StemLem.LANCASTER, StemLem.LEMMATIZATION (Default)
-	tokenized = pre_process_text(book)
 	
+	txt_exp = Text_Explorer(book_file)
 
 if __name__ == "__main__":
     main()
