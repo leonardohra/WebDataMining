@@ -16,7 +16,7 @@ __author__ = 'Leonardo'
 __copyright__ = 'Copyright 2019, Mining the Little Prince'
 __credits__ = ['Leonardo Henrique da Rocha Araujo']
 __license__ = 'GNU GLPv3'
-__version__ = '0.2.0'
+__version__ = '0.3.0'
 __maintainer__ = 'Leonardo'
 __email__ = 'leonardo.araujo@isistan.unicen.edu.ar'
 __status__ = 'Dev'
@@ -29,12 +29,6 @@ from text_exploration import Text_Explorer, Text
 def save_book(book, location):
 	with open(location, 'w') as file:
 		file.write(book)
-	
-def load_book(location):
-	book = ' '
-	with open(location, 'r') as file:
-		book = book.join(file.readlines())
-	return book
 
 def main():
 	book_file = './Book.txt'
